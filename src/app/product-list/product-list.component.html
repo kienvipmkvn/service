@@ -1,0 +1,30 @@
+<app-product-edit (addProduct)="onAddProduct($event)"></app-product-edit>
+<div class="row">
+  <div class="col-xs-10"></div>
+  <hr />
+  <ul class="list-group">
+    <a
+      href="#"
+      class="list-group-item clearfix"
+      *ngFor="let product of products"
+      [appCustom1]="product.color"
+    >
+      <div class="pull-left">
+        <h4 class="list-group-item-heading">{{ product.name }}</h4>
+        <p class="list-group-item-text">
+          Color: {{ product.color }}
+          <span [ngStyle]="{ color: product.color }" >■</span>
+        </p>
+        <p class="list-group-item-text">Price: {{ product.price }}$</p>
+      </div>
+      <span class="pull-right">
+        <img
+          [src]="product.imgPath"
+          alt="{{ product.name }}"
+          class="img-responsive"
+          style="max-height: 50px;"
+        />
+      </span>
+    </a>
+  </ul>
+</div>
